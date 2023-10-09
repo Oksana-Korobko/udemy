@@ -22,11 +22,22 @@
 Проверить, чтобы все работало без ошибок в консоли */
 
 'use strict';
-let numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?");
-let personalMovieDB ={
+let numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", '');
+
+const personalMovieDB ={
     count:numberOfFilms,
     movies : {},
     actors : {},
     genres : [],
     privat : false,
 }
+// Задайте пользователю по два раза вопросы:
+const lastFilmName = prompt('Один из последних просмотренных фильмов?', ''),
+        markLastFilm = +prompt('На сколько оцените его?', ''),
+        lastFilmName2 = prompt('Один из последних просмотренных фильмов?', ''),
+        markLastFilm2 = +prompt('На сколько оцените его?', '');
+personalMovieDB.movies[lastFilmName] = markLastFilm;
+personalMovieDB.movies[lastFilmName2] = markLastFilm2;
+
+
+console.log(personalMovieDB)
